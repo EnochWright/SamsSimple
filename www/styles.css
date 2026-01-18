@@ -84,6 +84,15 @@ header {
     padding: 5px;
 }
 
+.danger-icon {
+    color: var(--danger);
+}
+
+.danger-icon:hover {
+    background: #ffebee;
+    border-radius: 6px;
+}
+
 h1,
 h2 {
     color: var(--text-dark);
@@ -159,10 +168,17 @@ h2 {
 }
 
 /* PANTRY SPECIFIC */
+.search-section {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .search-section .search-bar {
     position: relative;
     display: flex;
     align-items: center;
+    flex: 1;
 }
 
 .search-icon {
