@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Sam's Simple App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="app-selector">
+                <button id="navBudget" class="nav-btn active">Budget</button>
+                <button id="navPantry" class="nav-btn">Pantry</button>
+            </div>
+
+            <div class="header-actions">
+                <button id="viewBtn" class="icon-btn" title="Toggle View">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </button>
+                <button id="backupBtn" class="icon-btn" title="Backup Current Data">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- BUDGET VIEW -->
+        <main id="budgetView" class="view-section">
+            <div class="left-group">
+                <section class="summary-card">
+                    <div class="balance-info">
+                        <span class="label">Remaining</span>
+                        <div class="amount-display">
+                            <span class="currency">$</span>
+                            <span id="remainingAmount">0.00</span>
+                        </div>
+                    </div>
+                    <div class="budget-info">
+                        <div class="row">
+                            <span>Monthly Budget</span>
+                            <span id="budgetDisplay">$0.00</span>
+                        </div>
+                        <!-- Hidden input for editing budget -->
+                        <div class="budget-edit hidden" id="budgetEdit">
+                            <input type="number" id="budgetInput" placeholder="Set Budget">
+                            <button id="saveBudgetBtn">Save</button>
+                            <button id="resetBudgetBtn" class="danger-btn">Reset</button>
+                        </div>
+                        <button id="editBudgetBtn" class="text-btn">Edit</button>
+                    </div>
+                </section>
+
+                <section class="add-entry-section">
+                    <div class="input-group">
+                        <input type="text" id="descInput" placeholder="What was it for?">
+                    </div>
+                    <div class="input-group row">
+                        <input type="number" id="amountInput" placeholder="0.00">
+                        <button id="addEntryBtn">Add</button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="transactions-list">
+                <h2>Recent Entries</h2>
+                <ul id="entriesList">
+                    <!-- Entries will appear here -->
+                </ul>
+            </section>
+
+
+
+
+
+        </main>
+
+        <!-- PANTRY VIEW -->
+        <main id="pantryView" class="view-section hidden">
+            <section class="control-card">
+                <div class="search-section">
+                    <div class="search-bar">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Search pantry...">
+                    </div>
+                </div>
+
+                <div class="add-entry-section">
+                    <div class="input-group">
+                        <input type="text" id="itemInput" placeholder="Item Name (e.g. Chicken Breast)">
+                    </div>
+                    <div class="input-group row">
+                        <input type="text" id="qtyInput" placeholder="Qty" style="flex: 1;">
+                        <select id="locationInput" style="flex: 2;">
+                            <option value="pantry">Pantry</option>
+                            <option value="freezer">Freezer</option>
+                        </select>
+                    </div>
+                    <div class="input-group row">
+                        <select id="categoryInput" style="flex: 2;">
+                            <option value="Beverages">Beverages</option>
+                            <option value="Canned">Canned</option>
+                            <option value="Dry Goods">Dry Goods</option>
+                            <option value="Frozen Foods">Frozen Foods</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Meat">Meat</option>
+                            <option value="Pasta & Grains">Pasta & Grains</option>
+                            <option value="Produce">Produce</option>
+                            <option value="Snacks">Snacks</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <button id="addItemBtn" style="flex: 1;">Add</button>
+                    </div>
+                </div>
+                <button id="resetPantryBtn" class="danger-btn" style="width: 100%; margin-top: 10px;">Reset Pantry
+                    Data</button>
+            </section>
+
+            <section id="freezerSection" class="transactions-list">
+                <h2>Freezer</h2>
+                <ul id="freezerList" class="pantry-list"></ul>
+            </section>
+
+            <section id="pantrySection" class="transactions-list">
+                <h2>Pantry</h2>
+                <ul id="pantryList" class="pantry-list"></ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

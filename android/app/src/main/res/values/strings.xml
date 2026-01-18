@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SamsSimpleApp</string>
+    <string name="title_activity_main">SamsSimpleApp</string>
+    <string name="package_name">com.samssimpleapp.app</string>
+    <string name="custom_url_scheme">com.samssimpleapp.app</string>
+</resources>
