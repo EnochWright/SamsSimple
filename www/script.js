@@ -340,7 +340,7 @@ const Pantry = {
         const term = filter.toLowerCase();
 
         this.state.items.forEach(item => {
-            if (term && !item.name.toLowerCase().includes(term)) return;
+            if (term && !item.name.toLowerCase().includes(term) && !item.category.toLowerCase().includes(term)) return;
             const li = this.createItemElement(item);
 
             if (item.location === 'freezer') freezerList.appendChild(li);
